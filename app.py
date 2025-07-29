@@ -17,6 +17,13 @@ from mlflow.models import infer_signature
 import mlflow.sklearn
 
 import logging
+import dagshub
+dagshub.init(repo_owner='AYANSONI63', repo_name='mlflowexperiments', mlflow=True)
+
+import mlflow
+with mlflow.start_run():
+  mlflow.log_param('parameter name', 'value')
+  mlflow.log_metric('metric name', 1)
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
